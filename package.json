@@ -1,0 +1,23 @@
+{
+  "name": "gulp-webpack-example",
+  "version": "1.0.0",
+  "description": "Simple Gulp Webpack Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dforth/gulp-webpack-example.git"
+  },
+  "keywords": [
+    "Gulp",
+    "WebPack",
+    "JavaScript"
+  ],
+  "author": "Don Forth <dforth@codehappy.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dforth/gulp-webpack-example/issues"
+  }
+}
