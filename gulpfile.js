@@ -47,11 +47,11 @@ gulp.task('javascript', ['jshint'], function() {
         ]
       },
       output: {
-        filename: 'bundle.js',
+        filename: 'bundle.js'
       },
       resolve: {
         extensions: ['', '.js']
-      },
+      }
     }))
     .pipe(gulp.dest('build/js'));
 });
