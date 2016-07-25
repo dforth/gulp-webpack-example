@@ -1,6 +1,8 @@
 // General
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var uglify = require('gulp-uglify');
+var gulpif = require('gulp-if');
 
 // CSS processing
 var sass = require('gulp-sass');
@@ -9,6 +11,18 @@ var autoprefixer = require('gulp-autoprefixer');
 // JS processing
 var jshint = require('gulp-jshint');
 var webpack = require('gulp-webpack');
+
+// Handle environment variable steps
+// First we need to get the value passed in
+// change this value by passing --buildEnv=production on the gulp commandline
+var environment = gutil.env.buildEnv || 'development';
+environment == environment.toLowerCase();
+console.log('Environment: ', environment);
+
+var isStagingOrProduction = (
+  environment == 'staging' || environment == 'stg' ||
+  environment == 'prod' || environment == 'production'
+);
 
 
 // Default task
@@ -53,6 +67,8 @@ gulp.task('javascript', ['jshint'], function() {
         extensions: ['', '.js']
       }
     }))
+    // Please note: I'm not actually a fan of uglifying Javascript - just gzip it.
+    .pipe(gulpif(isStagingOrProduction, uglify()))
     .pipe(gulp.dest('build/js'));
 });
 
